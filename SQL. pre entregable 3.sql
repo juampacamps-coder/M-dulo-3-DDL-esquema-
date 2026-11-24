@@ -1,5 +1,6 @@
 CREATE DATABASE	ventas_tech_db;
-
+GO
+  
 USE ventas_tech_db;
 
 DROP TABLE IF EXISTS ventas;
@@ -12,7 +13,7 @@ CREATE TABLE categorias(
 id_categoria INT PRIMARY KEY,
 nombre_categoria VARCHAR(50) NOT NULL,
 descripcion VARCHAR (200)
-)
+);
 
 CREATE TABLE clientes(
 id_cliente INT PRIMARY KEY,
@@ -20,7 +21,7 @@ nombre VARCHAR (100) NOT NULL,
 email VARCHAR (100) NOT NULL,
 ciudad VARCHAR (50),
 fecha_registro DATE NOT NULL
-)
+);
 
 CREATE TABLE productos(
 id_producto INT PRIMARY KEY,
@@ -29,7 +30,7 @@ id_categoria INT FOREIGN KEY (id_categoria) REFERENCES categorias(id_categoria),
 precio	DECIMAL(10,2) NOT NULL,
 stock INT DEFAULT 0,
 activo BIT	DEFAULT 1
-)
+);
 
 CREATE TABLE ventas(
 id_venta INT PRIMARY KEY,
@@ -38,7 +39,7 @@ id_producto INT FOREIGN KEY (id_producto) REFERENCES productos (id_producto),
 cantidad INT NOT NULL,
 precio_unitario DECIMAL (10,2) NOT NULL,
 fecha_venta DATE NOT NULL
-)
+);
 
 INSERT INTO categorias (id_categoria, nombre_categoria, descripcion) VALUES
 (1,'Computacion', 'Laptops,PCs y monitores'),
